@@ -1,0 +1,57 @@
+{
+  "name": "template-revealmd",
+  "version": "1.0.0",
+  "description": "Demonstrating DevOps using Reveal.JS Presentations",
+  "homepage": "https://github.com/dr3dr3/template-revealmd",
+  "license": "MIT",
+  "bin": {
+    "reveal-md": "bin/reveal-md.js"
+  },
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "type": "module",
+  "author": {
+    "name": "André Dreyer",
+    "email": "github@andredreyer.com",
+    "web": "https://andredreyer.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dr3dr3/template-revealmd.git"
+  },
+  "keywords": [
+    "devops",
+    "reveal.js",
+    "reveal-md",
+    "slides",
+    "presentation"
+  ],
+  "scripts": {
+    "start": "npx reveal-md . --watch --listing-template custom/listing.html --template custom/template.html --glob 'slides*/*.md' --absolute-url 'http://localhost:1948' --disable-auto-open",
+    "lint": "echo 'no linting'",
+    "test": "echo 'no tests'",
+    "links": "npx linkinator 'out/**.html' --format JSON",
+    "format": "prettier --write *.md",
+    "build": "npx reveal-md --static out --static-dirs=assets --listing-template custom/listing.html --template custom/template.html --glob 'slides/*.md' --absolute-url $SITE_URL --disable-auto-open"
+  },
+  "dependencies": {
+    "reveal-md": "^6.1.2"
+  },
+  "devDependencies": {
+    "eslint": "8.56.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prettier": "5.1.3",
+    "linkinator": "^6.0.4",
+    "prettier": "3.2.5",
+    "release-it": "17.1.1"
+  },
+  "overrides": {
+    "puppeteer-core": "^22.15.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

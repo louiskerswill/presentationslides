@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{pageTitle}}</title>
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <link rel="stylesheet" href="{{{themeUrl}}}" id="theme" />  
+    <style>
+      body {
+        text-align: center;
+        background-color: var(--r-background-color); }
+      h1 {
+        padding: 100px; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+      const darkModeOptions = {
+        right:'unset',
+          left:'32px',
+          time: '0.0s',
+          label:'🌗',
+          backgroundColor:'var(--r-background-color)',
+          buttonColorDark:'var(--r-main-color)',
+          saveInCookies: true,
+          autoMatchOsTheme: false,
+      };
+      function addDarkmodeWidget() {
+        new Darkmode(darkModeOptions).showWidget();
+      }
+      window.addEventListener('load', addDarkmodeWidget);
+      console.log(window.localStorage.getItem('darkmode'));
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <h1>Presentation Slide-Decks</h1>
+
+      <ul>
+        {{#files}}
+        <li>
+          <a href="./{{filePath}}" title="{{title}}">
+            {{#title}}{{.}}{{/title}}
+          </a>
+        </li>
+        {{/files}}
+      </ul>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+name: ON-PUSH-MAIN
+run-name: Continuous Integration ( ${{ github.event_name }} run by ${{ github.actor }} )
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '.github/**'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+
+  continuous-integration:
+    name: CI on Main
+    uses: dr3dr3/core-pipeline/.github/workflows/continuous-integration.yml@main
+    if: ${{ github.event.head_commit.message != 'Initial commit' }}
+    with: 
+      feature: ${{ github.event.head_commit.message }}
+      target-ref: ${{ github.sha }}
+      solution: ${{ vars.SOLUTION }}
+      soln-group: ${{ vars.SOLN_GROUP }}
+      output-dir: ${{ vars.OUTPUT_DIR }}
+      site-url: ${{ vars.SITE_URL }}
+      deploy-to: ${{ vars.DEPLOY_CI }}
+      check-links: ${{ vars.CHECK_LINKS }}
+      repo-stage: ${{ vars.REPO_STAGE }}
+      repo-prod: ${{ vars.REPO_PROD }}
+      repo-gitops: ${{ vars.REPO_GITOPS }}
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    secrets: inherit

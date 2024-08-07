@@ -1,0 +1,15 @@
+{
+    "concurrency": 100,
+    "config": "string",
+    "recurse": true,
+    "skip": [],
+    "format": "json",
+    "verbosity": "info",
+    "timeout": 0,
+    "markdown": true,
+    "directoryListing": false,
+    "retry": true,
+    "retryErrors": true,
+    "retryErrorsCount": 3,
+    "retryErrorsJitter": 5
+}

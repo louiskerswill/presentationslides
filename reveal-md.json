@@ -1,0 +1,7 @@
+{
+    "verticalSeparator": "^\n------\n",
+    "theme": "custom/theme.css",
+    "highlightTheme": "github-dark",
+    "assets-dir": "assets",
+    "glob": "slides/*.md"
+}
