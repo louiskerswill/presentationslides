@@ -20,4 +20,8 @@ A great way to create presentation slide-decks using MarkDown
 
 ---
 
+By Louis Kerswill and Andre Dreyer
+
+---
+
 # End
